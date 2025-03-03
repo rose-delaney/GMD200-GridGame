@@ -3,6 +3,7 @@ using UnityEngine;
 public class GridTile : MonoBehaviour
 {
     public bool solid;
+    public bool enemy;
     private SpriteRenderer _spriteRenderer;
     private Color _defaultColor;
 
