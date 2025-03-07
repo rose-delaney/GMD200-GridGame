@@ -69,9 +69,9 @@ public class GridMovement : MonoBehaviour
         if (grid.GetTile(x, y).enemy)
         {
             grid.GetTile(x, y).enemy = false;
+            grid.GetTile(x, y).monsterType = GridTile.MonsterType.None;
             grid.GetTile(x, y).GetComponent<SpriteRenderer>().color = Color.white;
             grid.GetTile(x, y).solid = false;
-            grid.StartCoroutine(grid.Co_SpawnTimer());
         }
     }
 }

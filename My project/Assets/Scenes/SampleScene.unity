@@ -495,6 +495,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   solid: 0
+  enemy: 0
+  monsterType: 0
+  move: 0
 --- !u!1 &1606436471
 GameObject:
   m_ObjectHideFlags: 0
@@ -570,7 +573,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
   m_Color: {r: 0.91764706, g: 0.73470557, b: 0.33725494, a: 1}
   m_FlipX: 0
@@ -628,6 +631,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   solid: 0
+  enemy: 0
+  monsterType: 0
+  move: 0
 --- !u!114 &1637809243
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -645,6 +651,12 @@ MonoBehaviour:
   numCols: 5
   tileSize: {x: 1.5, y: 1.5}
   padding: {x: 0.1, y: 0.1}
+  enemyPlacement: {fileID: 0}
+  spawningMonsterType: 0
+  greenCanSpawn: 0
+  purpleCanSpawn: 0
+  secondsWait: 5
+  player: {fileID: 0}
   _tiles: []
 --- !u!1001 &1138550398530801720
 PrefabInstance:
