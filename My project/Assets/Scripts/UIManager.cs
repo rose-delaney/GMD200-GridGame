@@ -20,8 +20,8 @@ public class UIManager : MonoBehaviour
 
    private void Update()
    {
-      TextMeshProUGUI scoreTextTxt = scoreTextObj.GetComponent<TMP_Text>;
-      TextMeshProUGUI healthTextTxt = healthTextObj.GetComponent<TMP_Text>;
+      TextMeshProUGUI scoreTextTxt = (TextMeshProUGUI)scoreTextObj.GetComponent<TMP_Text>();
+      TextMeshProUGUI healthTextTxt = (TextMeshProUGUI)healthTextObj.GetComponent<TMP_Text>();
 
       scoreTextTxt.text = score.ToString();
       healthTextTxt.text = health.ToString();

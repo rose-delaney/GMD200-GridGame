@@ -5,6 +5,7 @@ public class GridMovement : MonoBehaviour
     public GridManager grid;
     public Vector2Int gridPos = Vector2Int.zero;
     public Transform playerLocation;
+    public UIManager userInterface;
 
     private void Awake()
     {
@@ -36,7 +37,7 @@ public class GridMovement : MonoBehaviour
             playerLocation.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 180));
         }
         Vector3 targetPos = grid.GetTile(gridPos.x, gridPos.y).transform.position;
-        transform.position = Vector3.MoveTowards(transform.position, targetPos, 5.0f * Time.deltaTime);
+        transform.position = targetPos;
         if (Vector3.Distance(transform.position, targetPos) > 0.01f)
             return;
         if (Input.GetKeyDown(KeyCode.Space))
@@ -68,6 +69,22 @@ public class GridMovement : MonoBehaviour
         }
         if (grid.GetTile(x, y).enemy)
         {
+            int scoreAdd;
+            Debug.Log("test 1");
+            switch (grid.GetTile(x, y).monsterType)
+            {
+                case GridTile.MonsterType.Red:
+                    scoreAdd = 10;
+                    break;
+                case GridTile.MonsterType.Purple:
+                    scoreAdd = 20;
+                    break;
+                default:
+                    scoreAdd = 25;
+                    break;
+            }
+            Debug.Log("test tuah");
+            userInterface.GainScore(scoreAdd);
             grid.GetTile(x, y).enemy = false;
             grid.GetTile(x, y).monsterType = GridTile.MonsterType.None;
             grid.GetTile(x, y).GetComponent<SpriteRenderer>().color = Color.white;

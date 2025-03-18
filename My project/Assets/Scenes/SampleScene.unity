@@ -239,6 +239,7 @@ MonoBehaviour:
   grid: {fileID: 1637809243}
   gridPos: {x: 0, y: 0}
   playerLocation: {fileID: 0}
+  userInterface: {fileID: 2023289474}
 --- !u!4 &20015546
 Transform:
   m_ObjectHideFlags: 0
@@ -510,7 +511,7 @@ GameObject:
   - component: {fileID: 755919857}
   - component: {fileID: 755919856}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: HealthNum
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -942,7 +943,7 @@ GameObject:
   - component: {fileID: 1714399633}
   - component: {fileID: 1714399632}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: ScoreNum
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1293,6 +1294,7 @@ GameObject:
   - component: {fileID: 2023289472}
   - component: {fileID: 2023289471}
   - component: {fileID: 2023289470}
+  - component: {fileID: 2023289474}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1386,6 +1388,22 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &2023289474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2023289469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2e933578393a0e4c8c85eb172efdd2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  score: 0
+  health: 3
+  scoreTextObj: {fileID: 1714399630}
+  healthTextObj: {fileID: 755919854}
 --- !u!1001 &1138550398530801720
 PrefabInstance:
   m_ObjectHideFlags: 0
