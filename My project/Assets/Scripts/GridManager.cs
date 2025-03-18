@@ -127,6 +127,7 @@ public class GridManager : MonoBehaviour
                     MonsterType type = selectedTile.monsterType;
                     int xmove = MovementX(selectedTile.monsterType, player.GetComponent<GridMovement>().gridPos.x, row);
                     int ymove = MovementY(selectedTile.monsterType, player.GetComponent<GridMovement>().gridPos.y, col);
+                    int RNG = Random.Range(0, 1);
                     if ((xmove + row) < 0 || 4 < (xmove + row))
                     {
                         xmove = 0;
@@ -135,15 +136,25 @@ public class GridManager : MonoBehaviour
                     {
                         ymove = 0;
                     }
-                    if (GetTile((xmove + row), (xmove + col)).enemy == true)
+                    if ((selectedTile.monsterType == MonsterType.Red) || (selectedTile.monsterType == MonsterType.Green))
+                    {
+                       if ((xmove != 0) && (ymove != 0))
+                       {
+                          if (RNG == 0)
+                             xmove = 0;
+                          else
+                             ymove = 0;
+                       }
+                    }
+                    if (GetTile((xmove + row), (ymove + col)).enemy == true)
                     {
                         xmove = 0;
                         ymove = 0;
                     }
                     selectedTile.enemy = false;
                     selectedTile.monsterType = MonsterType.None;
-                    GetTile((xmove + row), (xmove + col)).enemy = true;
-                    GetTile((xmove + row), (xmove + col)).monsterType = type;
+                    GetTile((xmove + row), (ymove + col)).enemy = true;
+                    GetTile((xmove + row), (ymove + col)).monsterType = type;
                     selectedTile.move = false;
                 }
             }
