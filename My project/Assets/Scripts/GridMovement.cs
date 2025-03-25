@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class GridMovement : MonoBehaviour 
@@ -6,6 +7,7 @@ public class GridMovement : MonoBehaviour
     public Vector2Int gridPos = Vector2Int.zero;
     public Transform playerLocation;
     public UIManager userInterface;
+    public bool isInvulnerable = false;
 
     private void Awake()
     {
@@ -44,6 +46,21 @@ public class GridMovement : MonoBehaviour
         {
             Attack();
         }
+        if (grid.GetTile(gridPos.x, gridPos.y).enemy)
+        {
+            if (isInvulnerable == false)
+            {
+                StartCoroutine(Co_EnemyHit());
+            }
+        }
+    }
+
+    public IEnumerator Co_EnemyHit()
+    {
+        userInterface.LoseHealth();
+        isInvulnerable = true;
+        yield return new WaitForSeconds(3);
+        isInvulnerable = false;
     }
 
     public void Attack()

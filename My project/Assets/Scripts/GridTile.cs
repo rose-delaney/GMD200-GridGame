@@ -54,6 +54,7 @@ public class GridTile : MonoBehaviour
             default:
                 {
                     _spriteRenderer.color = Color.white;
+                    enemy = false;
                 }
                 break;
         }
